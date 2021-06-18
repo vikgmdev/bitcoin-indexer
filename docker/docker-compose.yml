@@ -1,0 +1,18 @@
+version: '3'
+services:
+  exodus-db:
+    image: postgres:13.3
+    container_name: exodus-db
+    volumes:
+      - exodus_dbdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: exodusapp
+      POSTGRES_HOST: exodus-db
+      POSTGRES_PASSWORD: admin
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: root
+    ports:
+      - 5432:5432
+
+volumes:
+  exodus_dbdata:
