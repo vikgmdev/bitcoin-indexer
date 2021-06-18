@@ -1,0 +1,77 @@
+{
+  "name": "exodus-engineering-coding-challenge-backend",
+  "version": "0.0.0",
+  "description": "The purpose of this project is to store and index Bitcoin OP_RETURN data for all transactions after a certain block. This data will then be served on an HTTP endpoint as a JSON payload.",
+  "main": "src/index.ts",
+  "scripts": {
+    "compile": "tsc",
+    "lint": "eslint . --max-warnings=0 --ext .js,.ts --ignore-path .gitignore --ignore-pattern '!.eslintrc.js' --ignore-pattern '!.prettierrc.js'",
+    "lint:fix": "npm run lint -- --fix",
+    "serve": "nodemon -r ts-node/register/transpile-only src/index.ts | pino-pretty",
+    "start": "export ENV=dev && npm run serve"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run check -- -s"
+    }
+  },
+  "lint-staged": {
+    "*.{css,js,json,md,ts,yaml,yml}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.{js,ts}": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ExodusMovementInterviews/VictorGarcia.git"
+  },
+  "author": "Victor Garcia <vikgm.dev@gmail.com>",
+  "engines": {
+    "node": "10.14.1 - 14.x",
+    "npm": "^6.8.0"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ExodusMovementInterviews/VictorGarcia/issues"
+  },
+  "homepage": "https://github.com/ExodusMovementInterviews/VictorGarcia#readme",
+  "dependencies": {
+    "btoa": "^1.2.1",
+    "dotenv-safe": "^8.2.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
+    "pg-hstore": "^2.3.4",
+    "pg": "^8.6.0",
+    "pino": "^6.11.3",
+    "sequelize": "^6.6.2"
+  },
+  "devDependencies": {
+    "@types/btoa": "^1.2.3",
+    "@types/dotenv-safe": "^8.1.1",
+    "@types/express": "^4.17.12",
+    "@types/node-fetch": "^2.5.10",
+    "@types/node": "^15.12.1",
+    "@types/pino": "^6.3.8",
+    "@types/type-is": "^1.6.3",
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "@typescript-eslint/parser": "^4.26.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint": "^7.28.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
+    "nodemon": "^2.0.7",
+    "pino-pretty": "^5.0.2",
+    "prettier": "^2.3.1",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.2",
+    "yargs-parser": "^20.2.7"
+  }
+}
