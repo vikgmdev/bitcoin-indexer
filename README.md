@@ -1,4 +1,4 @@
-# Exodus Engineering Coding Challenge - Backend
+# Bitcoin indexer - Backend
 
 The purpose of this project is to store and index Bitcoin OP_RETURN data for all transactions after a certain block. This data will then be served on an HTTP endpoint as a JSON payload.
 
